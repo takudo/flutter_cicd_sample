@@ -8,9 +8,13 @@ flutter プロジェクトにおける、実用的なCI/CD環境のサンプル�
 
 - ユニットテスト実行（ローカル環境）
 - インテグレーションテスト（エミュレータ or 実機テスト）（ローカル環境）
+- codemagic での ユニットテスト実行
+- codemagic での インテグレーションテスト実行
+    - エミュレーター
+    - 実機（AWS Device farm）
+- codemagic での ビルド
 
 今後のTODOとしては下記です。
 
-- bitrise での テスト実行
-- bitrise での ビルド
-- bitrise を通じた配布
+- deploygate での配布（ローカル環境）
+- codemagic x deploygate を通じた配布
