@@ -1,0 +1,36 @@
+# yaml sample https://github.com/mmcc007/sylph/blob/master/example/default_app/sylph.yaml
+
+tmp_dir: /tmp/sylph
+artifacts_dir: /tmp/sylph_artifacts
+# local timeout per device farm run
+sylph_timeout: 720 # seconds approx
+
+# device farm config
+project_name: App Integration Tests
+default_job_timeout: 10 # minutes, set at project creation
+
+device_pools:
+  # 一覧 http://awsdevicefarm.info/
+  - pool_name: android pool 1
+    pool_type: android
+    devices:
+      - name: Google Pixel 3a XL
+        model: G020C
+        os: 11
+
+  - pool_name: ios pool 1
+    pool_type: ios
+    devices:
+      - name: Apple iPhone 11
+        model: MWL12
+        os: 14
+
+test_suites:
+  - test_suite: Test suite from test_driver/app_test.dart
+    main: test_driver/app.dart
+    tests:
+      - test_driver/app_test.dart
+    pool_names:
+      - android pool 1
+      - ios pool 1
+    job_timeout: 15 # minutes, set per job, over-rides default job timeout above
